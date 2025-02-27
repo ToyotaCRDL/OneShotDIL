@@ -1,4 +1,7 @@
 # One-Shot Domain Incremental Learning
+[![cuda](https://img.shields.io/badge/CUDA-v11.3.1-green?logo=nvidia)](https://developer.nvidia.com/cuda-11-3-1-download-archive)
+[![python](https://img.shields.io/badge/Python-v3.8.10-blue?logo=python)](https://www.python.org/downloads/release/python-3810/)
+[![pytorch](https://img.shields.io/badge/PyTorch-v1.11.0-red?logo=pytorch)](https://pypi.org/project/torch/1.11.0/)
 
 This is an official Pytorch implementation of "One-Shot Domain Incremental Learning". [[arXiv](https://doi.org/10.48550/arXiv.2403.16707)|[IEEE Xplore](https://doi.org/10.1109/IJCNN60899.2024.10650928)]
 
@@ -36,25 +39,25 @@ We conducted our experiments on a NVIDIA A100 GPU.
 
 - The following is a demonstration of CIFAR10.
 
-  1. Train a model using only the original domain.
+    1. Train a model using only the original domain.
 
-      ```bash
-      bash scripts/cifar10/only_original_domain.sh
-      ```
-
-  2. Perform one-shot domain incremental learning using the new domain.
-
-      - Standard method (updated-stats)
-
-          ```bash
-          bash scripts/cifar10/updated_stats_dil.sh
-          ```
-      
-      - Proposed method (fixed-stats)
-
-          ```bash
-          bash scripts/cifar10/fixed_stats_dil.sh
+        ```bash
+        bash scripts/cifar10/only_original_domain.sh
         ```
+
+    2. Perform one-shot domain incremental learning using the new domain.
+
+        - Standard method (updated-stats)
+
+            ```bash
+            bash scripts/cifar10/updated_stats_dil.sh
+            ```
+      
+        - Proposed method (fixed-stats)
+
+            ```bash
+            bash scripts/cifar10/fixed_stats_dil.sh
+            ```
 
 ## Evaluation
 
