@@ -16,7 +16,7 @@ def get_net(args):
             try:
                 net.load_state_dict(torch.load(args.original_models_dir + '/model.pth'))
             except FileNotFoundError:
-                print('You must train the original domain model before domain incremental learning.')
+                raise FileNotFoundError('You must train the original domain model before domain incremental learning.')
         elif args.training_phase == 'evaluation':
             from nets.for_cifar.standard_resnet import ResNet18
             net = ResNet18(num_classes=9)
@@ -35,7 +35,7 @@ def get_net(args):
             try:
                 net.load_state_dict(torch.load(args.original_models_dir + '/model.pth'))
             except FileNotFoundError:
-                print('You must train the original domain model before domain incremental learning.')
+                raise FileNotFoundError('You must train the original domain model before domain incremental learning.')
         elif args.training_phase == 'evaluation':
             from nets.for_mnist.standard_resnet import resnet18
             net = resnet18(num_classes=9, grayscale=True)

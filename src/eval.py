@@ -40,7 +40,7 @@ if __name__ == '__main__':
     try:
         net.load_state_dict(torch.load(args.original_models_dir + '/model.pth'))
     except FileNotFoundError:
-        print('You must train the original domain model before evaluation.')
+        raise FileNotFoundError('You must train the original domain model before evaluation.')
     
     original_test_acc = compute_acc(original_testloader, net)
     new_test_acc = compute_acc(new_testloader, net)
@@ -58,7 +58,7 @@ if __name__ == '__main__':
         with open(args.results_dir + '/tuning_results.json', 'r') as f:
             tuning_results = json.load(f)
     except FileNotFoundError:
-        print('You must perform domain incremental learning before evaluation.')   
+        raise FileNotFoundError('You must perform domain incremental learning before evaluation.')   
     
     lr = tuning_results['best learning rate']
     

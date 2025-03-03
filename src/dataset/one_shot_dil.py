@@ -79,7 +79,7 @@ def make_dataset(args, test=False):
         new_domain_class = transform_labels[args.new_domain]
         original_domain_class = transform_labels[args.original_domain_for_increment]
     except ValueError:
-        print('Miss match between dataset and domain class')
+        raise ValueError('Miss match between dataset and domain class')
          
         
     if test:
