@@ -1,9 +1,16 @@
 # One-Shot Domain Incremental Learning
-[![cuda](https://img.shields.io/badge/CUDA-v11.3.1-green?logo=nvidia)](https://developer.nvidia.com/cuda-11-3-1-download-archive)
-[![python](https://img.shields.io/badge/Python-v3.8.10-blue?logo=python)](https://www.python.org/downloads/release/python-3810/)
-[![pytorch](https://img.shields.io/badge/PyTorch-v1.11.0-red?logo=pytorch)](https://pypi.org/project/torch/1.11.0/)
 
-This is an official Pytorch implementation of "One-Shot Domain Incremental Learning". [[arXiv](https://doi.org/10.48550/arXiv.2403.16707)|[IEEE Xplore](https://doi.org/10.1109/IJCNN60899.2024.10650928)]
+<p align="left">
+    <a href="https://developer.nvidia.com/cuda-11-3-1-download-archive" alt="CUDA">
+        <img src="https://img.shields.io/badge/CUDA-v11.3.1-green?logo=nvidia" /></a>
+    <a href="https://www.python.org/downloads/release/python-3810/" alt="Python">
+        <img src="https://img.shields.io/badge/Python-v3.8.10-blue?logo=python" /></a>
+    <a href="https://pypi.org/project/torch/1.11.0/" alt="Pytorch">
+        <img src="https://img.shields.io/badge/PyTorch-v1.11.0-red?logo=pytorch" /></a>
+</p>
+
+This is an official Pytorch implementation of "One-Shot Domain Incremental Learning".
+This study was presented at IJCNN 2024. [[arXiv](https://doi.org/10.48550/arXiv.2403.16707)|[IEEE Xplore](https://doi.org/10.1109/IJCNN60899.2024.10650928)]
 
 <div align="center">
 <img alt="overview" src="./overview.png" title="overview" width="60%">
