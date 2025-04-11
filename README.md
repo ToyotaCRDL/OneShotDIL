@@ -27,7 +27,9 @@ This study was presented at IJCNN 2024. [[arXiv](https://doi.org/10.48550/arXiv.
 2. Build a Docker image using `Dockerfile` and `requrements.txt`.
 
     ```bash
-    docker build --build-arg USER=${USER} -t one-shot-dil OneShotDIL
+    docker build --build-arg USER=${USER} --build-arg GROUP=$(id -gn) \
+            --build-arg UID=$(id -u) --build-arg GID=$(id -g) \
+            --tag one-shot-dil OneShotDIL
     ```
 
 3. Launch a container.
@@ -35,8 +37,7 @@ This study was presented at IJCNN 2024. [[arXiv](https://doi.org/10.48550/arXiv.
     ```bash
     docker run -it --rm --gpus all \
             --mount type=bind,source=$(pwd)/OneShotDIL,target=${HOME}/OneShotDIL \
-            --workdir ${HOME}/OneShotDIL \
-            one-shot-dil
+            --workdir ${HOME}/OneShotDIL one-shot-dil
     ```
 
 We conducted our experiments on a NVIDIA A100 GPU.

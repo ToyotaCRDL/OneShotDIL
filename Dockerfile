@@ -8,7 +8,8 @@ RUN apt-get update && apt-get -y upgrade && apt-get install -y --no-install-reco
     tar zip unzip bzip2 xz-utils \
     python3-dev python3-venv \
     libssl-dev libffi-dev libbz2-dev libdb-dev libreadline-dev libgdbm-dev \
-    liblzma-dev libncursesw5-dev libsqlite3-dev zlib1g-dev uuid-dev
+    liblzma-dev libncursesw5-dev libsqlite3-dev zlib1g-dev uuid-dev \
+    && rm -rf /var/lib/apt/lists/*
 RUN apt-get clean
 
 RUN wget https://www.python.org/ftp/python/3.8.10/Python-3.8.10.tgz
@@ -22,7 +23,11 @@ RUN rm -f Python-3.8.10.tgz
 RUN rm -rf Python-3.8.10/
 
 ARG USER
-RUN useradd -m -s /bin/bash ${USER}
+ARG GROUP
+ARG UID
+ARG GID
+RUN groupadd -g ${GID} ${GROUP} && \
+    useradd -m -s /bin/bash -u ${UID} -g ${GID} ${USER}
 USER ${USER}
 
 ENV LC_ALL=C.UTF-8
@@ -30,7 +35,7 @@ ENV LANG=C.UTF-8
 
 WORKDIR /home/${USER}
 
-COPY requirements.txt /home/${USER}/
+COPY requirements.txt ./
 RUN pip install --upgrade pip setuptools wheel
 RUN pip install -r requirements.txt
 RUN rm -f requirements.txt
